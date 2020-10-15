@@ -13,3 +13,4 @@ def solution(arrangement):
     return answer
 
 
+# 포인트 : append, pop 즉 스택을 이용한 쇠막대기의 구현
