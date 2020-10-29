@@ -8,4 +8,4 @@ def solution(n): #n의 제곱근 이하의 소수만 판별 해 내면 됨.
     return a.count(True)
 
 
-출처: https://ggn0.tistory.com/99?category=695152 [Not null] #풀이 과정
+# 출처: https://ggn0.tistory.com/99?category=695152 [Not null] 풀이 과정
