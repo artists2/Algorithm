@@ -1,3 +1,4 @@
+# 회의실 배정
 N = int(input())
 meeting = []
 for _ in range(0, N):
