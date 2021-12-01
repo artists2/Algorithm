@@ -29,3 +29,5 @@ for i in range(0, N):
             flag_favorite_season = True
     
 print(flag_favorite_season)
+
+# 아직 다 안풀었음
