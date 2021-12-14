@@ -16,7 +16,7 @@ def solution(orders, course):
                 else:
                     dictlist[c][comb] = 1
     for c in range(len(course)):
-        if len(dictlist[c]) == 0:
+        if len(dictlist[c]) == 0
             continue
         maxvalue = max(dictlist[c].values())
         if maxvalue == 1:
