@@ -22,3 +22,5 @@ def solution(orders, course):
 
         answer.sort()
     return answer
+
+    # 연속된 문자열도 나눌수 있음 combinations로. Counter과 most_common()활용법 이해하기
