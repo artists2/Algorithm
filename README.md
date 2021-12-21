@@ -1,5 +1,5 @@
 
-# Programmers, Beck-joon 
+# Programmers, Baek-joon 
 
 
 Algorithm solving
