@@ -1,47 +1,37 @@
-import sys
-input = sys.stdin.readline
+N = int(input())
+graph = [list(map(int, input())) for _ in range(N)]
+num = []
 
-N, K = map(int, input().split())
+dx = [-1,1,0,0]
+dy = [0,0,-1,1]
 
-multitap = list(map(int, input().split()))
-
-plugs = []
-count = 0
-
-for i in range(K):
-  # 있으면 건너 뛴다.
-  if multitap[i] in plugs:
-    continue
-  
-  # 플러그가 1개라도 비어 있으면 집어넣는다.
-  if len(plugs) < N:
-    plugs.append(multitap[i])
-    continue
-  
-  multitap_idxs = [] # 다음 멀티탭의 값을 저장.
-  #hasplug = True
-
-  for j in range(N):
-  	# 멀티탭 안에 플러그 값이 있다면
-    if plugs[j] in multitap[i:]:
-      # 멀티탭 인덱스 위치 값 가져오기.
-      multitap_idx = multitap[i:].index(plugs[j])
-    else:
-      multitap_idx = 101
-      #hasplug = False
-
-    # 인덱스에 값을 넣어준다.
-    print(multitap_idx, multitap_idxs)
-    multitap_idxs.append(multitap_idx)
+def DFS(x,y):
+    if x<=0 or x>=N or y<=0 or y >=N:
+        return False
     
-    # 없다면 종료
-    #if not hasplug:
-    #  break
-  
-  # 플러그를 뽑는다.
-  plug_out = multitap_idxs.index(max(multitap_idxs))
-  del plugs[plug_out] # 플러그에서 제거
-  plugs.append(multitap[i]) # 플러그에 멀티탭 값 삽입
-  count += 1 # 뽑았으므로 1 증가
+    if graph[x][y] == 1:
+        global count
+        count += 1
+        graph[x][y] = 0
+        for i in range(4):
+            nx = x +dx[i]
+            ny = y +dy[i]
+            DFS(nx,ny)
+        return True
+    return False
+    
 
-print(count)
+count = 0
+result = 0
+
+for i in range(N):
+    for j in range(N): 
+        if DFS(i,j) == True:
+            num.append(count)
+            result += 1
+            count = 0
+        
+num.sort()
+print(result)
+for i in range(len(num)):
+	print(num[i])
