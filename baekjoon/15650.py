@@ -16,4 +16,5 @@ def dfs(n, m, s, start):
         dfs(n, m, s, i)
         s.pop()
 
+
 dfs(N, M, s, 1)
