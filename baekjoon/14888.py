@@ -19,18 +19,13 @@ def dfs(i, res, add, sub, mul, div):
  
     else:
         if add:
-            print('add', i + 1, res + numbers[i], add - 1, sub, mul, div)
             dfs(i + 1, res + numbers[i], add - 1, sub, mul, div)
         if sub:
-            print('sub', i + 1, res - numbers[i], add, sub - 1, mul, div)
             dfs(i + 1, res - numbers[i], add, sub - 1, mul, div)
         if mul:
-            print('mul', i + 1, res * numbers[i], add, sub, mul  - 1, div)
             dfs(i + 1, res * numbers[i], add, sub, mul - 1, div)
         if div:
-            print('div', i + 1, int(res / numbers[i]), add, sub, mul, div  - 1)
             dfs(i + 1, int(res / numbers[i]), add, sub, mul, div - 1)
  
-print(f"-----------start-----------dfs(1, {numbers[0]}, {add}, {sub}, {mul}, {div})")
 dfs(1, numbers[0], add, sub, mul, div)
 print(max_num,min_num,sep='\n')
