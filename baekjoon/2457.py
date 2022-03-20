@@ -1,33 +1,33 @@
 #공주님의 정원
 import sys
-import heapq
 
 N = int(input())
-Y = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] # 1년의 총 일수 Y[0] = 1월
 
 flowers = []
 
+end = 0
+target = 301
+count = 0
 for _ in range(N):
     (sm, sd, em, ed) = map(int, sys.stdin.readline().split())
-    flowers.append((sm, sd, em, ed))
+    flowers.append((sm * 100 + sd, em * 100 + ed))
 
+flowers.sort(key=lambda date: (date[0], date[1]))
 
-print(flowers)
-# flowers.sort(key= lambda x: (x[2], x[0], x[3], x[1])) # 끝 월, 시작 월, 끝 일, 시작 일 순으로 정렬
-flowers.sort(key= lambda x: x[2])
-print(flowers)
+while flowers:
+    if target >= 1201 or target < flowers[0][0]:
+        break
+    for _ in range(len(flowers)):
+        if target >= flowers[0][0]:
+            if end <= flowers[0][1]:
+                end = flowers[0][1]
+            flowers.remove(flowers[0])
+        else:
+            break
+    target = end
+    count += 1
 
-queue = []
-
-heapq.heappush(queue, (3,1,3,1)) # 하루만 
-
-flag_favorite_season = False
-
-for i in range(0, N):
-    if flag_favorite_season == False: # 공주님이 좋아하는 계절 검증
-        if (flowers[i][0] >= 3) and (flowers[i][0] < 12):
-            flag_favorite_season = True
-    
-print(flag_favorite_season)
-
-# 아직 다 안풀었음
+if target < 1201:
+    print(0)
+else:
+    print(count)
