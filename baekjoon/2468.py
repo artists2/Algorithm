@@ -19,30 +19,45 @@ for g in graph:
     depth.update(set(g))
 
 def dfs(x, y, d):
-    visited[x][y] == True
+    
+    if graph[x][y] <= d:
+        return
 
-    for i in range(4):
-        nx = x + dx[i]
-        ny = y + dy[i]
+    visited[x][y] = True
+
+    for t in range(4):
+        nx = x + dx[t]
+        ny = y + dy[t]
 
         if nx >= N or ny >= N or nx < 0 or ny < 0:
             continue
+        
+        if graph[nx][ny] > d and visited[nx][ny] == 0:
+            dfs(nx, ny, d)
         else:
-            if graph[nx][ny] > d:
-                dfs(nx, ny, d)
-            else:
-                continue
+            continue
     return
 
 max_count = []
 count = 0
-
-for d in depth:
+for d in depth: 
     for i in range(N):
         for j in range(N):
             if not visited[i][j]:
-                dfs(i, j, d)
-                count += 1
-                pass
-    max_count.append(max(max_count, count))
-print(max_count)
+                if graph[i][j] > d:
+                    count += 1
+                    dfs(i,j,d)
+
+                else:
+                    continue
+    
+    visited = [[False] * N for _ in range(N)]
+    max_count.append(count)    
+    count = 0
+if max(max_count) > 1:
+    print(max(max_count))
+else:
+    print(1)
+
+
+## 코드 수정 + 중간에 멈출 방법 찾기
