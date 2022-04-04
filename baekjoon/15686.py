@@ -32,9 +32,5 @@ for ch in combinations(chk, M):
         temp += c
     result = min(result, temp)
 
-for ch in combinations(chk, M):
-    for h in homes:
-        for j in range(M):
-            print(h[0], ch[j][0], h[1], ch[j][1], "----", ch, h, j)
 
-# print(result)
+print(result)

@@ -1,50 +1,114 @@
-from collections import defaultdict
-from itertools import combinations
-
-def solution(sentences, n):
 
 
-    answer = -1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# from collections import defaultdict
+# from itertools import combinations
+
+# def solution(sentences, n):
+
+
+#     answer = -1
     
-    for sent in sentences:
-        score = 0
-        count = 0
-        flag = 0
-        tmp = []
-        for s in set(sent):
-            if count > n:
-                break
-            if s.isupper():
-                score += 1
-                flag = 1
-            if s == " ":
-                continue
+#     for sent in sentences:
+#         score = 0
+#         count = 0
+#         flag = 0
+#         tmp = []
+#         for s in set(sent):
+#             if count > n:
+#                 break
+#             if s.isupper():
+#                 score += 1
+#                 flag = 1
+#             if s == " ":
+#                 continue
             
-            tmp.append(s.lower())
+#             tmp.append(s.lower())
         
-        if count > n:
-            continue
-        else:
-            if flag:
-                count += 1  # shift
-                flag = 0
-                tmp.append("shift")
+#         if count > n:
+#             continue
+#         else:
+#             if flag:
+#                 count += 1  # shift
+#                 flag = 0
+#                 tmp.append("shift")
 
-            count += len(set(sent))
-            if " " in sent:
-                count -= 1
-                # print("count : ", sent.count(" "))
-            score += len(sent)
+#             count += len(set(sent))
+#             if " " in sent:
+#                 count -= 1
+#                 # print("count : ", sent.count(" "))
+#             score += len(sent)
             
-            print("score: ", score, "count: ", count)
-            tmp.append((score, count))
-            print(tmp)
+#             print("score: ", score, "count: ", count)
+#             tmp.append((score, count))
+#             print(tmp)
 
 
-    return answer
+#     return answer
 
-print(solution(["line in line", "LINE", "in lion"], 5))
-print(solution(["ABcD", "bdbc", "a", "Line neWs"], 7))
+# print(solution(["line in line", "LINE", "in lion"], 5))
+# print(solution(["ABcD", "bdbc", "a", "Line neWs"], 7))
 
 
 
