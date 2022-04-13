@@ -1,46 +1,71 @@
-n, m, x, y, k = map(int, input().split())
 
-board = []
-dx = [0, 0, -1, 1]
-dy = [1, -1, 0, 0]
-dice = [0, 0, 0, 0, 0, 0]
 
-def turn(dir):
-    a, b, c, d, e, f = dice[0], dice[1], dice[2], dice[3], dice[4], dice[5]
-    if dir == 1: #동
-        dice[0], dice[1], dice[2], dice[3], dice[4], dice[5] = d, b, a, f, e, c
+def create_command(time, meter, turn):
+    command_string = f"Time {time}: Go straight {meter}m and turn {turn}"
 
-    elif dir == 2: #서
-        dice[0], dice[1], dice[2], dice[3], dice[4], dice[5] = c, b, f, a, e, d
+    return command_string
 
-    elif dir == 3: #북
-        dice[0], dice[1], dice[2], dice[3], dice[4], dice[5] = e, a, c, d, f, b
+def check_directions(check, p):
+    result = ""
+    if check == "E":
+        if p == "N":
+            return "left"
+        if p == "S":
+            return "right"
 
-    else:
-        dice[0], dice[1], dice[2], dice[3], dice[4], dice[5] = b, f, c, d, a, e
+    if check == "N":
+        if p == "W":
+            return "left"
+        if p == "E":
+            return "right"
 
-for i in range(n):
-    board.append(list(map(int, input().split())))
+    if check == "W":
+        if p == "S":
+            return "left"
+        if p == "N":
+            return "right"
 
-comm = list(map(int, input().split()))
+    if check == "S":
+        if p == "E":
+            return "left"
+        if p == "W":
+            return "right"
 
-nx, ny = x, y
-for i in comm:
-    nx += dx[i-1]
-    ny += dy[i-1]
 
-    if nx < 0 or nx >= n or ny < 0 or ny >= m:
-        nx -= dx[i-1]
-        ny -= dy[i-1]
-        continue
-    turn(i)
-    if board[nx][ny] == 0:
-        board[nx][ny] = dice[-1]
-    else:
-        dice[-1] = board[nx][ny]
-        board[nx][ny] = 0
+def solution(path):
+    answer = []
+    stck = []
+    check = path[0]
+    time = 0
+    while time != len(path):
+        if path[time] != check:
+            # print(stck)
+            if len(stck) < 5:
+                meter = len(stck) * 100
+                d = check_directions(check, path[time])
 
-    print(dice[0])
+                if not answer:
+                    # print(create_command(0, meter, d))
+                    answer.append(create_command(0, meter, d))
+                else:
+                    # print(create_command(time - len(stck), meter, d))
+                    answer.append(create_command(time-len(stck), meter, d))
 
-for i in board:
-    print(i)
+            else:
+                # print(time, stck)
+                meter = 500
+                d = check_directions(check, path[time])
+                # print(create_command(time - len(stck) + 1, meter, d))
+                answer.append(create_command(time - 5, meter, d))
+
+            stck.clear()
+            check = path[time]
+
+        stck.append(path[time])
+        time += 1
+
+
+    return answer
+
+print(solution("EEESEEEEEENNNN"))
+# print(solution("SSSSSSWWWNNNNNN"))
