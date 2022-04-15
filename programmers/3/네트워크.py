@@ -9,7 +9,6 @@ def solution(n, computers):
                 continue
             if computers[i][j]:
                 graph[i].append(j)
-    print(graph)
 
     def dfs(n):
         visited[n] = True
@@ -17,7 +16,6 @@ def solution(n, computers):
         for g in graph[n]:
             if not visited[g]:
                 dfs(g)
-
         return
 
 
