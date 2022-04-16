@@ -51,6 +51,6 @@ print(solution([["POOOP", "OXXOX", "OPXPX", "OOXOX", "POXXP"], ["POOPX", "OXPXP"
 """
 P0000 -> 이경우 S에서 탐색을 좌우지간 1칸씩 움직이게 되는데 이때, 처음 들어온 dfs 부분인 P를 count 하여 False가 됨.
 S0000 -> 그래서 처음 들어온 좌표를 X, Y 로 저장해두고 다음 챕터때 들어온 좌표를 스캔하려고 하면 continue
-00000
+00000 -> count 는 깊이.. 
 
 """
