@@ -1,5 +1,5 @@
 
-
+from itertools import combinations
 def create_command(time, meter, turn):
     command_string = f"Time {time}: Go straight {meter}m and turn {turn}"
 

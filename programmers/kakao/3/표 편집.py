@@ -48,9 +48,11 @@ def solution(n, k, cmd):
             answer += "X"
         else:
             answer += "O"
-
-
     return answer
+
+
+
+# 시간초과 코드
 
 # def solution(n, k, cmd):
 #     answer = ''
