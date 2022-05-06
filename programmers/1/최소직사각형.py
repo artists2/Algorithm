@@ -15,7 +15,6 @@ def solution(sizes):
     print(w, h)
     print(max(w)*max(h))
 
-
     return answer
 
 
