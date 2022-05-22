@@ -1,5 +1,3 @@
-import copy 
-
 def solution(s):
     answer = []
     t = []

@@ -17,7 +17,7 @@ def solution(N, stages):
         result.append((stage, r))
     result.sort(key=lambda x: x[1], reverse=True)
     for r in result:
-        answer.append(r[0])
+        answer.append(r[0]) 
     return answer
 
 print(solution(5, [2, 1, 2, 6, 2, 4, 3, 3]))  # [3, 4, 2, 1, 5]

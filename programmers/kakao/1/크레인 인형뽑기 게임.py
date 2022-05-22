@@ -12,16 +12,9 @@ def solution(board, moves):
     answer = 0
     N = len(board)
     stack = []
-    for b in board:
-        print(b)
-    print()
     
     for move in moves:
         board, p = pick(board, N, move)
-        print(move)
-        for b in board:
-            print(b)
-        print(stack, p, answer)
         if stack:
             if stack[-1] == p:
                 answer += 2
@@ -29,8 +22,6 @@ def solution(board, moves):
                 continue
         if p:
             stack.append(p)
-    print(stack)
-
     return answer
 
 print(solution([[0,0,0,0,0],[0,0,1,0,3],[0,2,5,0,1],[4,2,4,4,2],[3,5,1,3,1]], [1,5,3,5,1,2,1,4]))  # 4
