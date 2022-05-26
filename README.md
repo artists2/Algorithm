@@ -1,6 +1,4 @@
 
 # Programmers, Baek-joon 
 
-
-Algorithm solving
-
+Solving algorithms
