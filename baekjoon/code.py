@@ -1,34 +1,34 @@
 from collections import Counter
 
+def solution(logs):
+    answer = []
+    problems = []
+    users = set()
+    logs = set(logs)
+    logs = list(logs)
+    for log in logs:
+        name, problem = log.split()
+        users.add(name)
+        problems.append(problem)
+    
+    problems = Counter(problems)
 
-def make_land(height):
-    sec = 0
-    for key in land:
-        print(key, height)
-        if key < height:
-            sec += (height - key) * land[key]
-        elif key > height:
-            sec += (key - height) * 2 * land[key]
-    return sec
+    if len(users) % 2 == 0:
+        half = int(len(users)//2)
+    else:
+        half = int(len(users)//2) + 1
+
+    for pro in problems:
+        if problems[pro] >= half:
+            answer.append(pro)
+
+    answer.sort()
+    return answer
 
 
-n, m, inven = map(int, input().split())
-land = []
-for _ in range(n):
-    land += map(int, input().split())
-
-_sum, _len = sum(land), n * m
-land = dict(Counter(land))
-height, min_sec = 0, 100000000000000
-print(land)
-for i in range(257):
-    print()
-    print(i)
-    if _len * i <= _sum + inven:
-        sec = make_land(i)
-        print(sec)
-        if sec <= min_sec:
-            min_sec = sec
-            height = i
-
-print(min_sec, height)
+print(solution(["morgan string_compare", "felix string_compare", "morgan reverse", "rohan sort", "andy reverse", "morgan sqrt"]))
+# ["reverse", "stng_compare"]
+print(solution(["morgan sort", "felix sort", "morgan sqrt", "morgan sqrt", "rohan reverse", "rohan reverse"])) 
+# ["sort"]
+print(solution(["kate sqrt"]))  
+# ["sqrt"]

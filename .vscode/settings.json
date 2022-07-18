@@ -1,0 +1,9 @@
+{
+    "editor.fontFamily": "'D2Coding', Menlo, Monaco, Courier New, monospace",
+    "workbench.colorCustomizations": {
+        "[GitHub Dark Colorblind (Beta)]": {},
+        "[Community Material Theme Darker]": {},
+    "[Community Material Theme Lighter]": {}
+    },
+    "editor.bracketPairColorization.enabled": false
+}

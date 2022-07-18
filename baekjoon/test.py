@@ -1,7 +1,30 @@
-s = [1,2,3,4,5]
+gr = {
+    'A' : ['aaa', 'bbb', 'ccc'],
+    'B' : ['ddd'],
+    'C' : ['eee']
+}
 
-def right_shift(l):
-    print(l[-1], l[:-1])
-    return [l[-1]] + l[:-1]
+dic = {
+    'aaa' : [4, 3, 2, 1],
+    'bbb' : [4, 2, 1, 1],
+    'ccc' : [4, 3, 1, 1],
+    'ddd' : [3, 4, 0, 0],
+    'eee' : [0, 0, 3, 1]
+}
 
-print(right_shift(s))
+
+# 답
+# ['aaa', 'ccc', 'bbb']
+
+
+# a; 3 2 0 0
+# b; 3 2 1 0
+# c; 3 3 0 0
+
+
+
+s = ['abda', 'abca', 'acaa']
+
+s.sort()
+
+print(s)
